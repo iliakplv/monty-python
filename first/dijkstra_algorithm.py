@@ -50,7 +50,7 @@ paths_lengths[current_vertex] = 0
 
 # Result
 
-print('\nresults\n')
+print('\nResults\n[vertex | path length | path]\n')
 for vertex in paths.keys():
     print(vertex, paths_lengths[vertex], paths[vertex], sep='\t\t')
 
