@@ -47,6 +47,22 @@ paths_lengths[current_vertex] = 0
 
     # set current_vertex to vertex: adjacent, with minimal path_length, not visited (if existing)
 
+while vertexes_to_visit:
+    vertexes_to_visit.remove(current_vertex)
+
+    current_shortest_path = '-?'
+    current_shortest_path_length = inf
+
+    for vertex in vertexes_to_visit:
+        path_to_vertex_from_current = str(current_vertex) + '-' + str(vertex)
+
+        if path_to_vertex_from_current in adjacency:
+            if path_to_vertex_from_current < current_shortest_path_length:
+                current_shortest_path = '-' + str(vertex)
+                current_shortest_path_length = path_to_vertex_from_current
+
+
+
 
 # Result
 
