@@ -2,6 +2,13 @@ inf = 10000
 delimiter = '-'
 
 
+def edge_between_vertexes(vertex1, vertex2):
+    if vertex1 < vertex2:
+        return str(vertex1) + delimiter + str(vertex2)
+    else:
+        return str(vertex2) + delimiter + str(vertex1)
+
+
 # Graph definition
 
 adjacency = {
@@ -37,16 +44,11 @@ while vertexes_to_visit:
     # visiting adjacent vertexes
 
     for vertex_in_visit in vertexes_to_visit:
-
-        # creating string path
-        if current_vertex < vertex_in_visit:
-            path_to_vertex_from_current = str(current_vertex) + delimiter + str(vertex_in_visit)
-        else:
-            path_to_vertex_from_current = str(vertex_in_visit) + delimiter + str(current_vertex)
+        edge_to_vertex = edge_between_vertexes(current_vertex, vertex_in_visit)
 
         # calculating minimal path to visited vertex
-        if path_to_vertex_from_current in adjacency:
-            temp_path_length = paths_lengths[current_vertex] + adjacency[path_to_vertex_from_current]
+        if edge_to_vertex in adjacency:
+            temp_path_length = paths_lengths[current_vertex] + adjacency[edge_to_vertex]
             if temp_path_length < paths_lengths[vertex_in_visit]:
                 paths_lengths[vertex_in_visit] = temp_path_length
                 paths[vertex_in_visit] = paths[current_vertex] + delimiter + str(vertex_in_visit)
@@ -57,15 +59,10 @@ while vertexes_to_visit:
     next_current_vertex = ''
 
     for vertex in vertexes_to_visit:
-
-        # creating string path
-        if current_vertex < vertex:
-            path_to_vertex_from_current = str(current_vertex) + delimiter + str(vertex)
-        else:
-            path_to_vertex_from_current = str(vertex) + delimiter + str(current_vertex)
+        edge_to_vertex = edge_between_vertexes(current_vertex, vertex)
 
         # searching for adjacent vertex with minimal path
-        if path_to_vertex_from_current in adjacency:
+        if edge_to_vertex in adjacency:
             if paths_lengths[vertex] < min_path_length:
                 min_path_length = paths_lengths[vertex]
                 next_current_vertex = vertex
