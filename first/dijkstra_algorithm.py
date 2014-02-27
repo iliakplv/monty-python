@@ -71,10 +71,10 @@ while vertex != start_vertex:
 
 ##### Results printing #####
 
-print('\nResults:\n[vertex | path length | predecessor]')
+print('\nResults:\n[ vertex | path length | predecessor ]')
 
 for vertex in paths_lengths.keys():
     print(vertex, paths_lengths[vertex], predecessors[vertex], sep='\t\t')
 
-print('\nResult path:\n' + result_path)
+print('\nResult path: ' + result_path)
 print('Result path length: ' + str(paths_lengths[end_vertex]))
