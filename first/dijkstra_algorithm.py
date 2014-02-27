@@ -58,6 +58,6 @@ while vertexes_to_visit:
 
 # Result # todo
 
-print('\nResults\n[vertex | path length | path]\n')
+print('\nResults\n[vertex | path length | previous]\n')
 for vertex in paths_lengths.keys():
     print(vertex+1, paths_lengths[vertex], previous_vertexes[vertex]+1, sep='\t\t')
