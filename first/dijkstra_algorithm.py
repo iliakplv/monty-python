@@ -49,10 +49,9 @@ while vertexes_to_visit:
                 min_path_length = paths_lengths[vertex]
                 next_current_vertex = vertex
 
-    # todo debug
-    # print('\ncurrent = {cv} \n'.format(cv=current_vertex+1))
+    # print('\ncurrent = {cv} \n'.format(cv=current_vertex))
     # for vertex in paths_lengths.keys():
-    #     print(vertex+1, paths_lengths[vertex], previous_vertexes[vertex]+1, sep='\t\t')
+    #     print(vertex, paths_lengths[vertex], previous_vertexes[vertex], sep='\t\t')
 
 
     if next_current_vertex == '':
