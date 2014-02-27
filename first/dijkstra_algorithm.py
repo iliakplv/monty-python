@@ -12,7 +12,7 @@ adjacency = [[inf, 7, 9, inf, inf, 14],
              [14, inf, 2, inf, 9, inf]]
 
 vertexes_to_visit = {0, 1, 2, 3, 4, 5}  # initially - all vertexes
-predcessors = {0: no, 1: no, 2: no, 3: no, 4: no, 5: no}
+predecessors = {0: no, 1: no, 2: no, 3: no, 4: no, 5: no}
 paths_lengths = {0: inf, 1: inf, 2: inf, 3: inf, 4: inf, 5: inf}
 
 
@@ -40,7 +40,7 @@ while vertexes_to_visit:
             temp_path_length = paths_lengths[current_vertex] + adjacency[current_vertex][vertex]
             if temp_path_length < paths_lengths[vertex]:
                 paths_lengths[vertex] = temp_path_length
-                predcessors[vertex] = current_vertex
+                predecessors[vertex] = current_vertex
 
     # searching for next current vertex in unvisited vertexes
 
@@ -65,15 +65,16 @@ while vertexes_to_visit:
 vertex = end_vertex
 result_path = str(vertex)
 while vertex != start_vertex:
-    result_path = str(predcessors[vertex]) + ' -> '  + result_path
-    vertex = predcessors[vertex]
+    result_path = str(predecessors[vertex]) + ' -> ' + result_path
+    vertex = predecessors[vertex]
 
 
 ##### Results printing #####
 
-print('\nResults:\n[vertex | path length | previous]\n')
+print('\nResults:\n[vertex | path length | predecessor]')
 
 for vertex in paths_lengths.keys():
-    print(vertex, paths_lengths[vertex], predcessors[vertex], sep='\t\t')
+    print(vertex, paths_lengths[vertex], predecessors[vertex], sep='\t\t')
 
 print('\nResult path:\n' + result_path)
+print('Result path length: ' + str(paths_lengths[end_vertex]))
