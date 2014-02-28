@@ -20,6 +20,8 @@ graph_matrix = [[no, 7, 9, inf, inf, 14],
 
 start_vertex = 0
 end_vertex = 5
+search_all_paths = True
+# if False only shortest path from Start to End will be found
 
 
 ##### Initialization #####
@@ -39,6 +41,9 @@ vertexes_to_visit.remove(current_vertex)
 # Algorithm
 
 while vertexes_to_visit:
+
+    if (not search_all_paths) and current_vertex == end_vertex:
+        break
 
     # visiting unvisited adjacent vertexes
 
@@ -77,10 +82,11 @@ while vertex != start_vertex:
 
 ##### Results printing #####
 
-print('\nResults:\n[ vertex | path length | predecessor ]')
-
-for vertex in paths_lengths.keys():
-    print(vertex, paths_lengths[vertex], predecessors[vertex], sep='\t\t')
-
 print('\nResult path: ' + result_path)
 print('Result path length: ' + str(paths_lengths[end_vertex]))
+
+if search_all_paths:
+    print('\nAll results:\n[ vertex | path length | predecessor ]')
+
+    for vertex in paths_lengths.keys():
+        print(vertex, paths_lengths[vertex], predecessors[vertex], sep='\t\t')
