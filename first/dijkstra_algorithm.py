@@ -1,22 +1,22 @@
-inf = 10000
+inf = 1e12
 no = -1
 
 
-# Graph definition
+# Graph
+# numbers of lines and rows must be equals
+# value of matrix[i][j] is weight of edge (i) -> (j)
+# weight of edge between non adjacent vertexes must be equals to inf
+# values on matrix's diagonal doesn't matter
 
-adjacency = [[inf, 7, 9, inf, inf, 14],
-             [7, inf, 10, 15, inf, inf],
-             [9, 10, inf, 11, inf, 2],
-             [inf, 15, 11, inf, 6, inf],
-             [inf, inf, inf, 6, inf, 9],
-             [14, inf, 2, inf, 9, inf]]
-
-vertexes_to_visit = {0, 1, 2, 3, 4, 5}  # initially - all vertexes
-predecessors = {0: no, 1: no, 2: no, 3: no, 4: no, 5: no}
-paths_lengths = {0: inf, 1: inf, 2: inf, 3: inf, 4: inf, 5: inf}
+graph_matrix = [[no, 7, 9, inf, inf, 14],
+                [7, no, 10, 15, inf, inf],
+                [9, 10, no, 11, inf, 2],
+                [inf, 15, 11, no, 6, inf],
+                [inf, inf, inf, 6, no, 9],
+                [14, inf, 2, inf, 9, no]]
 
 
-# Path start/end
+# Start and End of shortest path to search
 
 start_vertex = 0
 end_vertex = 5
@@ -24,6 +24,13 @@ end_vertex = 5
 
 ##### Initialization #####
 
+vertexes_to_visit = set()
+predecessors = {}
+paths_lengths = {}
+for v in range(len(graph_matrix)):
+    vertexes_to_visit.add(v)
+    predecessors[v] = no
+    paths_lengths[v] = inf
 current_vertex = start_vertex
 paths_lengths[current_vertex] = 0
 vertexes_to_visit.remove(current_vertex)
@@ -36,8 +43,8 @@ while vertexes_to_visit:
     # visiting unvisited adjacent vertexes
 
     for vertex in vertexes_to_visit:
-        if adjacency[current_vertex][vertex] < inf:
-            temp_path_length = paths_lengths[current_vertex] + adjacency[current_vertex][vertex]
+        if graph_matrix[current_vertex][vertex] < inf:
+            temp_path_length = paths_lengths[current_vertex] + graph_matrix[current_vertex][vertex]
             if temp_path_length < paths_lengths[vertex]:
                 paths_lengths[vertex] = temp_path_length
                 predecessors[vertex] = current_vertex
@@ -52,7 +59,6 @@ while vertexes_to_visit:
             min_path_length = paths_lengths[vertex]
             next_current_vertex = vertex
 
-
     if next_current_vertex == '':
         break
     else:
@@ -63,9 +69,9 @@ while vertexes_to_visit:
 # Result path calculation
 
 vertex = end_vertex
-result_path = str(vertex)
+result_path = '(' + str(vertex) + ')'
 while vertex != start_vertex:
-    result_path = str(predecessors[vertex]) + ' -> ' + result_path
+    result_path = '(' + str(predecessors[vertex]) + ') -> ' + result_path
     vertex = predecessors[vertex]
 
 
