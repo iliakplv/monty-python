@@ -6,7 +6,7 @@ no = -1
 # numbers of lines and rows must be equals
 # value of matrix[i][j] is weight of edge (i) -> (j)
 # weight of edge between non adjacent vertexes must be equals to inf
-# values on matrix's diagonal doesn't matter
+# values on matrix's diagonal do not matter
 
 graph_matrix = [[no, 7, 9, inf, inf, 14],
                 [7, no, 10, 15, inf, inf],
