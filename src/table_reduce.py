@@ -1,5 +1,5 @@
 in_file_name = '../data/table_data.txt'
-out_file_name = 'table_result.txt'
+out_file_name = '../data/table_result.txt'
 round_to_digits = 1
 
 sums_dict = {}
