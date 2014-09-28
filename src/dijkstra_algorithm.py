@@ -5,7 +5,7 @@ no = -1
 # Graph
 # numbers of lines and rows must be equals
 # value of matrix[i][j] is weight of edge (i) -> (j)
-# weight of edge between non adjacent vertexes must be equals to inf
+# weight of edge between non adjacent vertices must be equals to inf
 # values on matrix's diagonal do not matter
 
 graph_matrix = [[no, 7, 9, inf, inf, 14],
@@ -26,40 +26,40 @@ search_all_paths = True
 
 ##### Initialization #####
 
-vertexes_to_visit = set()
+vertices_to_visit = set()
 predecessors = {}
 paths_lengths = {}
 for v in range(len(graph_matrix)):
-    vertexes_to_visit.add(v)
+    vertices_to_visit.add(v)
     predecessors[v] = no
     paths_lengths[v] = inf
 current_vertex = start_vertex
 paths_lengths[current_vertex] = 0
-vertexes_to_visit.remove(current_vertex)
+vertices_to_visit.remove(current_vertex)
 
 
 # Algorithm
 
-while vertexes_to_visit:
+while vertices_to_visit:
 
     if (not search_all_paths) and current_vertex == end_vertex:
         break
 
-    # visiting unvisited adjacent vertexes
+    # visiting unvisited adjacent vertices
 
-    for vertex in vertexes_to_visit:
+    for vertex in vertices_to_visit:
         if graph_matrix[current_vertex][vertex] < inf:
             temp_path_length = paths_lengths[current_vertex] + graph_matrix[current_vertex][vertex]
             if temp_path_length < paths_lengths[vertex]:
                 paths_lengths[vertex] = temp_path_length
                 predecessors[vertex] = current_vertex
 
-    # searching for next current vertex in unvisited vertexes
+    # searching for next current vertex in unvisited vertices
 
     min_path_length = inf
     next_current_vertex = ''
 
-    for vertex in vertexes_to_visit:
+    for vertex in vertices_to_visit:
         if paths_lengths[vertex] < min_path_length:
             min_path_length = paths_lengths[vertex]
             next_current_vertex = vertex
@@ -68,7 +68,7 @@ while vertexes_to_visit:
         break
     else:
         current_vertex = next_current_vertex
-        vertexes_to_visit.remove(current_vertex)
+        vertices_to_visit.remove(current_vertex)
 
 
 # Result path calculation
