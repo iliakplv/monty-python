@@ -5,7 +5,6 @@ round_to_digits = 1
 sums_dict = {}
 total_sum_initial = 0
 
-
 # counting
 for line in open(in_file_name):
     if not len(line.strip()) == 0:
@@ -24,12 +23,10 @@ for line in open(in_file_name):
 
         total_sum_initial += amount
 
-
 # erase out file
 temp = open(out_file_name, 'w')
 temp.write('')
 temp.close()
-
 
 # output
 total_sum_counted = 0

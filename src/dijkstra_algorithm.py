@@ -1,7 +1,6 @@
 inf = 1e12
 no = -1
 
-
 # Graph
 # numbers of lines and rows must be equals
 # value of matrix[i][j] is weight of edge (i) -> (j)
@@ -14,7 +13,6 @@ graph_matrix = [[no, 7, 9, inf, inf, 14],
                 [inf, 15, 11, no, 6, inf],
                 [inf, inf, inf, 6, no, 9],
                 [14, inf, 2, inf, 9, no]]
-
 
 # Start and End of shortest path to search
 
@@ -36,7 +34,6 @@ for v in range(len(graph_matrix)):
 current_vertex = start_vertex
 paths_lengths[current_vertex] = 0
 vertices_to_visit.remove(current_vertex)
-
 
 # Algorithm
 
@@ -70,7 +67,6 @@ while vertices_to_visit:
         current_vertex = next_current_vertex
         vertices_to_visit.remove(current_vertex)
 
-
 # Result path calculation
 
 vertex = end_vertex
@@ -78,7 +74,6 @@ result_path = '(' + str(vertex) + ')'
 while vertex != start_vertex:
     result_path = '(' + str(predecessors[vertex]) + ') -> ' + result_path
     vertex = predecessors[vertex]
-
 
 ##### Results printing #####
 

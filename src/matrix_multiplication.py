@@ -55,4 +55,3 @@ def print_result(result):
 # Tests
 
 print_result(multiply(matrix_a, matrix_b))
-
