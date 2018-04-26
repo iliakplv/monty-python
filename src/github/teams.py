@@ -5,6 +5,7 @@ import requests
 # Add github repos to the team
 
 # todo replace with your stuff
+repos_file = 'repos.csv'
 token = 'Bearer TOKEN'
 team_id = 'TEAM_ID'
 owner = 'OWNER'
@@ -22,7 +23,7 @@ def write_to_log(s):
     log_file.write(s + '\n')
 
 
-with open('repos.csv', 'r') as f:
+with open(repos_file, 'r') as f:
     reader = csv.reader(f)
     for i, row in enumerate(reader):
 

@@ -5,6 +5,7 @@ import requests
 # Transfer github repos to new owner
 
 # todo replace with your stuff
+repos_file = 'repos.csv'
 token = 'Bearer TOKEN'
 old_owner = 'OLD_OWNER'
 new_owner = 'NEW_OWNER'
@@ -22,7 +23,7 @@ def write_to_log(s):
     log_file.write(s + '\n')
 
 
-with open('repos.csv', 'r') as f:
+with open(repos_file, 'r') as f:
     reader = csv.reader(f)
     for i, row in enumerate(reader):
 
