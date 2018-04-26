@@ -1,3 +1,6 @@
 /.idea/*
+
+/data/table_result.txt
+
 /src/github/repos.csv
 /src/github/log*
