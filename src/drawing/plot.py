@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 
 # plt.gca().invert_yaxis()
 plt.axis('equal')
+plt.axis('off')
 
 stroke_count = 100
 canvas_size = 1000
