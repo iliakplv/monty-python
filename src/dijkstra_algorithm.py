@@ -22,7 +22,7 @@ search_all_paths = True
 # if False only shortest path from Start to End will be found
 
 
-##### Initialization #####
+# Initialization
 
 vertices_to_visit = set()
 predecessors = {}
@@ -75,7 +75,7 @@ while vertex != start_vertex:
     result_path = '(' + str(predecessors[vertex]) + ') -> ' + result_path
     vertex = predecessors[vertex]
 
-##### Results printing #####
+# Print result
 
 print('\nResult path: ' + result_path)
 print('Result path length: ' + str(paths_lengths[end_vertex]))
