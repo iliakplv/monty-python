@@ -5,4 +5,7 @@
 /src/github/repos.csv
 /src/github/log*
 
+/src/google-docs/credentials.json
+/src/google-docs/token.pickle
+
 /venv/*
