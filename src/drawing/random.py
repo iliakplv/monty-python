@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 plt.axis('equal')
 plt.axis('off')
 
-stroke_points = 7
+stroke_points = randint(10, 50)
 exponential_scale = 1.0
 normal_mean = 0
 normal_std = 1.0
@@ -44,12 +44,9 @@ def get_color():
 
 
 def draw():
-    strokes = randint(10, 20)
-    for _ in range(strokes):
-        x_series = rand_exponential()
-        y_series = rand_uniform()
-        plt.plot(x_series, y_series, linewidth=get_width(), color=get_color())
-
+    x_series = rand_normal()
+    y_series = rand_exponential()
+    plt.plot(x_series, y_series, linewidth=get_width(), color=get_color())
     plt.show()
 
 
