@@ -12,13 +12,14 @@ def play(win_ratio):
 def simulate():
     prizes_left = 3000
     iterations = 10
+    win_ratio_coefficient = 0.9
     games_per_iter_min = 800
     games_per_iter_max = 1200
     games_per_iter_predicted = (games_per_iter_min + games_per_iter_max) / 2
 
     for iter in range(0, iterations):
         iterations_left = iterations - iter
-        win_ratio = prizes_left / (games_per_iter_predicted * iterations_left)
+        win_ratio = prizes_left / (games_per_iter_predicted * iterations_left) * win_ratio_coefficient
         prizes_won = 0
         games = randint(games_per_iter_min, games_per_iter_max)
 
